@@ -30,14 +30,17 @@
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 20, 4); // set the LCD address to 0x27 for a 20 chars and 4 line display
 
-#define PN532_SS   (0) // Je kunt hier ook een andere pin kiezen, maar 0 werkte met de Microbit
+#define PN532_SS   (0) // You can choose other pins, pin 0 worked for the Microbit. It also worked with pin 16.
 Adafruit_PN532 nfc(PN532_SS);
 
-// Gebruik bij de Microbit altijd hardware SPI
+// Always use hardware SPI when you use a Microbit
 // Microbit hardware SPI SCK / SCLK pin: 13
 // Microbit hardware SPI MISO pin: 14
 // Microbit hardware SPI DATA / MOSI pin: 15
-// Sluit ook de SS pin aan (zie boven bij #define PN532_SS)
+// Also connect the SS pin (see above at #define PN532_SS)
+// Do not forget to set the dipswitches on the PN532 board to SPI:
+// Set switch #1 to the left
+// Set switch #2 to the right
 
 unsigned long serialNo = 0;
 
